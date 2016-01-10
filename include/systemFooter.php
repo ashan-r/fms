@@ -16,17 +16,6 @@
 <script type="text/javascript" src="js/bootstrap3-typeahead.js"></script>
 <script type="text/javascript" src="js/userManegmantConfig.js"></script>
 <script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
+<script src="controllers/employee.js" type="text/javascript"></script>
 <!--<script type="text/javascript" charset="utf8" src="js/jquery.dataTables.min.js"></script>-->
 
-<!--
-Designed and Developed By BadBoyz Team @ MDCC
-     (               )     )    )              *    (                 
-(    (    )\ )      (  ( /(  ( /( ( /(            (  `   )\ )   (     (    
-( )\   )\  (()/(    ( )\ )\()) )\()))\())    (      )\))( (()/(   )\    )\   
-)((_|(((_)( /(_))   )((_|(_)\ ((_)\((_)\     )\    ((_)()\ /(_))(((_) (((_)  
-((_)_ )\ _ )(_))_   ((_)_  ((_)_ ((_)_((_)   ((_)   (_()((_|_))_ )\___ )\___  
-| _ )(_)_\(_)   \   | _ )/ _ \ \ / /_  /   /__ _\  |  \/  ||   ((/ __((/ __| 
-| _ \ / _ \ | |) |  | _ \ (_) \ V / / /   // _` |\ | |\/| || |) | (__ | (__  
-|___//_/ \_\|___/   |___/\___/ |_| /___|  \\__,_|/ |_|  |_||___/ \___| \___| 
-                                    \____/                            
--->

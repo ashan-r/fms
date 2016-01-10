@@ -34,78 +34,76 @@ include './config/dbc.php';
                                     <div class="form-group">
                                         <label for="sub_cat_name" class="col-lg-4 control-label custom-label">EMP Code:</label>
                                         <div class="col-lg-6">
-                                            <input type="text" id="emp_no" class="form-control" placeholder="EMP Code">
+                                            <input type="text" id="empno" class="form-control" placeholder="EMP Code">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="sub_cat_name" class="col-lg-4 control-label custom-label">Employee Name :</label>
                                         <div class="col-lg-6">
-                                            <input type="text" id="address" class="form-control" placeholder="Name">
+                                            <input type="text" id="name" class="form-control" placeholder="Name">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="sub_cat_name" class="col-lg-4 control-label custom-label">Designation. :</label>
                                         <div class="col-lg-6">
-                                            <input type="text" id="phone_no" class="form-control" placeholder="General">
+                                            <input type="text" id="nic" class="form-control" placeholder="General">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="sub_cat_name" class="col-lg-4 control-label custom-label">NIC :</label>
                                         <div class="col-lg-6">
-                                            <input type="text" id="fax" class="form-control" placeholder="Fax">
-                                            <input type="text" id="email" class="form-control" placeholder="E-mail">
-                                            <input type="text" id="web" class="form-control" placeholder="Web">
+                                            <input type="text" id="tel" class="form-control" placeholder="NIC">
                                         </div>
                                     </div>
+                                     <div class="form-group">
+                                                <label class="col-lg-4 control-label custom-label">Gender:</label>
+                                                <div col-lg-6>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" class="rbt_" id="rbt_male" name="rbt_gender" checked="checked" value="male">Male
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" class="rbt_" id="rbt_female" name="rbt_gender" value="female">Female
+                                                    </label>
+                                                </div>
+                                            </div>
+                                    
                                     <div class="form-group">
-                                        <label class="col-lg-4 control-label custom-label">Gender:</label>
+                                        <label class="col-lg-4 control-label custom-label">Contact No:</label>
                                         <div class="col-lg-6">
-                                            <input type="text" id="suppbank_name" readonly="" class="form-control custom-text1" value="" onkeyup="set_focus_next(event, '#model_desc')">
-                                            <input type="hidden" readonly=""  id="suppbank_id" class="form-control custom-text1">
+                                            <!--<input type="text" id="v_fuel" class="form-control custom-text1" onkeyup="set_focus_next(event, '#model_desc')">-->
+                                              <input type="text" id="tel" class="form-control" placeholder="Contact NO">
                                         </div>
-                                        <button class="btn btn-custom-light" id="btn_bank_search" data-toggle="modal" data-target="#bank_searchModal"><i class="fa fa-search fa-sm"></i>&nbsp;</button>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-4 control-label custom-label">EPF No:</label>
                                         <div class="col-lg-6">
                                             <!--<input type="text" id="v_fuel" class="form-control custom-text1" onkeyup="set_focus_next(event, '#model_desc')">-->
-                                            <select id="sup_currency">
-                                            </select>
+                                              <input type="text" id="epfno" class="form-control" placeholder="EPF NO">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label custom-label">Basic:</label>
+                                        <div class="col-lg-6">
+                                            <!--<input type="text" id="v_fuel" class="form-control custom-text1" onkeyup="set_focus_next(event, '#model_desc')">-->
+                                            <input type="text" id="basic" class="form-control" placeholder="Basic Salary" >
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-4 control-label custom-label">Basic Sallary:</label>
-                                        <div class="col-lg-6">
-                                            <!--<input type="text" id="v_fuel" class="form-control custom-text1" onkeyup="set_focus_next(event, '#model_desc')">-->
-                                            <select id="sup_currency">
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-lg-4 control-label custom-label">Basic Sallary:</label>
-                                        <div class="col-lg-6">
-                                            <!--<input type="text" id="v_fuel" class="form-control custom-text1" onkeyup="set_focus_next(event, '#model_desc')">-->
-                                            <select id="sup_currency">
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-lg-4 control-label custom-label">Reg Date:</label>
-                                        <div class="col-lg-6">
-                                            <!--<input type="text" id="v_fuel" class="form-control custom-text1" onkeyup="set_focus_next(event, '#model_desc')">-->
-                                            <select id="sup_currency">
-                                            </select>
-                                        </div>
-                                    </div>
+                                                <label class="col-lg-4 control-label custom-label">Date :</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" id="reg_date" class="form-control custom-text1 datepicker" onkeyup="set_focus_next(event, '#model_save_btn')">                        
+                                                </div>
+                                            </div>
                                     <div class="form-group">
                                         <div class="col-lg-offset-4 col-lg-10">
                                             <span  id="save_div" class="">
-                                                <button class="btn btn-custom-save" id="btn_supp_add" onkeyup=""><i class="fa fa-plus-square fa-lg"></i>&nbsp;Save Employee</button>
+                                                <button class="btn btn-custom-save" id="btn_emp_add" onkeyup=""><i class="fa fa-plus-square fa-lg"></i>&nbsp;Save Employee</button>
                                             </span>
                                             <span  id="update_div">
-                                                <button class="btn btn-custom-save hidden" id="btn_update_supp"><i class="fa fa-pencil fa-sm"></i>&nbsp;Update</button>                                                
-                                                <button class="btn btn-custom-light" id="btn_clear_supp"><i class="fa fa-refresh fa-sm"></i>&nbsp;Clear</button>
+                                                <button class="btn btn-custom-save hidden" id="btn_update_emp><i class="fa fa-pencil fa-sm"></i>&nbsp;Update</button>                                                
+                                                <button class="btn btn-custom-light" id="btn_clear_emp"><i class="fa fa-refresh fa-sm"></i>&nbsp;Clear</button>
                                             </span>
                                         </div>
                                     </div>
@@ -115,7 +113,7 @@ include './config/dbc.php';
                             <div class="col-md-7">
                                 <div class="panel" style="">
                                     <div class="panel-heading panel-custom">
-                                        <h3 class="panel-title title-custom">Registered Supplier Details</h3>
+                                        <h3 class="panel-title title-custom">Employee Details</h3>
 
                                         <div class="pull-right">
                                             <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
@@ -127,7 +125,7 @@ include './config/dbc.php';
                                         <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters=".contact_info_table"/>
                                     </div>
                                     <div class="scrollable" style="height: 65vh; overflow-y: auto">
-                                        <table class="table table-bordered table-striped table-hover datable reg_sup_details_tbl">
+                                        <table class="table table-bordered table-striped table-hover datable employee_details_tbl">
                                             <thead>
                                                 <tr>
                                                     <th>Supplier Code</th>
@@ -153,96 +151,7 @@ include './config/dbc.php';
             </div>
         </div>
 
-        <!-- ADVISING BANK MODAL -->
-        <div class="modal fade" id="bank_searchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog" style="width: 800px;">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Select Bank</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-horizontal">
-                                        <div class="form-group">
-                                            <label class="col-lg-4 control-label custom-label">Bank :</label>
-                                            <div class="col-lg-8">
-                                                <input type="text" id="bank_name" class="form-control custom-text1" onkeyup="set_focus_next(event, '#model_desc')">
-                                                <input type="hidden" id="bank_id" class="form-control custom-text1">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-lg-4 control-label custom-label">SWIFT :</label>
-                                            <div class="col-lg-8">
-                                                <input type="text" id="bank_swift" maxlength="8" style="text-transform: uppercase;" class="form-control custom-text1" onkeyup="set_focus_next(event, '#model_desc')">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-horizontal">
-                                        <div class="form-group">
-                                            <label class="col-lg-4 control-label custom-label">Branch :</label>
-                                            <div class="col-lg-8">
-                                                <input type="text" id="branch" class="form-control custom-text1" onkeyup="set_focus_next(event, '#model_desc')">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-lg-4 control-label custom-label">Account :</label>
-                                            <div class="col-lg-8">
-                                                <input type="text" id="bank_account" class="form-control custom-text1" onkeyup="set_focus_next(event, '#model_desc')">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-lg-12">
-                                                <span  id="mod_save_div" class="">
-                                                    <button class="btn btn-custom-save" id="bank_saveBtn" onkeyup=""  data-toggle="tooltip" data-placement="bottom" title=""><i class="fa fa-plus-square fa-lg"></i>&nbsp;Add</button>
-                                                </span>
-                                                <span  id="mod_update_div" class="">
-                                                    <button class="btn btn-custom-save hidden" id="bank_updtBtn"><i class="fa fa-pencil fa-sm"></i>&nbsp;Update</button>                                                
-                                                </span>
-                                                <span  id="mod_reset_div" class="">
-                                                    <button class="btn btn-custom-light" id="bank_reset" onkeyup=""><i class="fa fa-refresh fa-lg"></i>&nbsp;Reset</button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="panel" style="border: 1px solid rgba(153, 150, 153, 1);">
-                                        <div class="panel-body filterTableSearch" style="display: block; padding: 2px">
-                                            <input type="text" placeholder="search" class="form-control" id="dev-table-filter" data-action="filter" data-filters=".bank_tbl"/>
-                                        </div>                                    
-                                        <div class="scrollable" style="height: 150px; overflow-y: auto">
-                                            <table class="table table-bordered table-striped table-hover datable bank_tbl">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>SWIFT code</th>
-                                                        <th>Branch</th>
-                                                        <th>Account No</th>
-                                                        <th>Actions</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>                                                             
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-custom-light" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <!-- load JavaScript-->
         <?php require_once './include/systemFooter.php'; ?>
     </body>
@@ -250,9 +159,8 @@ include './config/dbc.php';
         $(function() {
             // pageProtect();
             // checkurl();
-            load_sup_reg_tbl();
-            load_currency_types();
-            bankTable();
+            load_employee_tbl();
+                     
             $('#logout').click(function() {
                 logout();
             });

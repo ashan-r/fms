@@ -883,6 +883,23 @@ vh_payment.pay_confirmed = '{$_POST['chq_type']}'");
 
 
         //
+    } else if ($_POST['table'] == 'load_employee_tbl') {
+        $system->prepareSelectQueryForJSON("SELECT
+r_employee.emp_id,
+r_employee.empno,
+r_employee.title,
+r_employee.`name`,
+r_employee.designation,
+r_employee.nic,
+r_employee.tel,
+r_employee.gender,
+r_employee.epfno,
+r_employee.basic,
+r_employee.reg_date,
+r_employee.`status`
+FROM
+r_employee
+where r_employee.`status` = '1'");
     }
 }
 

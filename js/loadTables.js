@@ -1566,3 +1566,39 @@ function load_clearing_table(page, callback) {
         }
     }, "json");
 }
+
+function load_employee_tbl() {
+    var tableData = '';
+    $.post("views/loadTables.php", {table: "load_employee_tbl"}, function (e) {
+        if (e === undefined || e.length === 0 || e === null) {
+            tableData += '<tr><th colspan="4" class="alert alert-warning text-center"> -- No Data Found -- </th></tr>';
+            $('.employee_details_tbl tbody').html('').append(tableData);
+        } else {
+            $.each(e, function (index, data) {
+                index++;
+                tableData += '<tr>';
+                tableData += '<td style="text-align: center">' + data.empno + '</td>';
+                tableData += '<td style="text-align: center">' + data.name + '</td>';
+                tableData += '<td style="text-align: center">' + data.nic + '</td>';
+                tableData += '<td style="text-align: center">' + data.designation + '</td>';
+                tableData += '<td style="text-align: center">' + data.tel + '</td>';
+                tableData += '<td style="text-align: center">' + data.epfno + '</td>';
+                tableData += '<td style="text-align: center">' + data.basic + '</td>';
+                tableData += '<td style="text-align: center"><div class="btn-group"><button class="btn btn-custom-save select_emp" value="' + data.emp_id + '"><i class="fa fa-pencil fa-sm"></i>&nbsp;Edit</button> &nbsp;<button class="btn btn-custom-light delete_supp" value="' + data.emp_id + '"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete</button></div></td>';
+                tableData += '</tr>';
+            });
+            $('.employee_details_tbl tbody').html('').append(tableData);
+
+            $('.select_emp').click(function () {
+                var emp_id = $(this).val();
+                get_selected_employee_data(emp_id);
+            });
+
+            $('.delete_supp').click(function () {
+                delete_supplier($(this).val());
+            });
+
+        }
+
+    }, "json");
+}

@@ -644,6 +644,8 @@ function get_selected_supp_data(sup_id) {
     }, 'json');
 }
 
+
+
 function update_supp() {
     var sup_id = $('#supp_id').val();
     var sup_code = $('#sup_code').val();
