@@ -46,43 +46,41 @@ include './config/dbc.php';
                                     <div class="form-group">
                                         <label for="sub_cat_name" class="col-lg-4 control-label custom-label">Designation. :</label>
                                         <div class="col-lg-6">
-                                            <input type="text" id="nic" class="form-control" placeholder="General">
+                                            <input type="text" id="designation" class="form-control" placeholder="General">
                                         </div>
                                     </div>
 
+                                     <div class="form-group">
+                                        <label for="sub_cat_name" class="col-lg-4 control-label custom-label">NIC. :</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" id="nic" class="form-control" placeholder="General">
+                                        </div>
+                                    </div>
                                     <div class="form-group">
-                                        <label for="sub_cat_name" class="col-lg-4 control-label custom-label">NIC :</label>
+                                        <label for="sub_cat_name" class="col-lg-4 control-label custom-label">TEL :</label>
                                         <div class="col-lg-6">
                                             <input type="text" id="tel" class="form-control" placeholder="NIC">
                                         </div>
                                     </div>
-                                     <div class="form-group">
-                                                <label class="col-lg-4 control-label custom-label">Gender:</label>
-                                                <div col-lg-6>
-                                                    <label class="radio-inline">
-                                                        <input type="radio" class="rbt_" id="rbt_male" name="rbt_gender" checked="checked" value="male">Male
-                                                    </label>
-                                                    <label class="radio-inline">
-                                                        <input type="radio" class="rbt_" id="rbt_female" name="rbt_gender" value="female">Female
-                                                    </label>
-                                                </div>
-                                            </div>
-                                    
                                     <div class="form-group">
-                                        <label class="col-lg-4 control-label custom-label">Contact No:</label>
-                                        <div class="col-lg-6">
-                                            <!--<input type="text" id="v_fuel" class="form-control custom-text1" onkeyup="set_focus_next(event, '#model_desc')">-->
-                                              <input type="text" id="tel" class="form-control" placeholder="Contact NO">
+                                        <label class="col-lg-4 control-label custom-label">Gender:</label>
+                                        <div col-lg-6>
+                                            <label class="radio-inline">
+                                                <input type="radio" class="rbt_" id="rbt_male" name="rbt_gender" checked="checked" value="male">Male
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" class="rbt_" id="rbt_female" name="rbt_gender" value="female">Female
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-4 control-label custom-label">EPF No:</label>
                                         <div class="col-lg-6">
                                             <!--<input type="text" id="v_fuel" class="form-control custom-text1" onkeyup="set_focus_next(event, '#model_desc')">-->
-                                              <input type="text" id="epfno" class="form-control" placeholder="EPF NO">
+                                            <input type="text" id="epfno" class="form-control" placeholder="EPF NO">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label class="col-lg-4 control-label custom-label">Basic:</label>
                                         <div class="col-lg-6">
@@ -91,18 +89,18 @@ include './config/dbc.php';
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                                <label class="col-lg-4 control-label custom-label">Date :</label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" id="reg_date" class="form-control custom-text1 datepicker" onkeyup="set_focus_next(event, '#model_save_btn')">                        
-                                                </div>
-                                            </div>
+                                        <label class="col-lg-4 control-label custom-label">Date :</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" id="reg_date" class="form-control custom-text1 datepicker" onkeyup="set_focus_next(event, '#model_save_btn')">                        
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="col-lg-offset-4 col-lg-10">
                                             <span  id="save_div" class="">
                                                 <button class="btn btn-custom-save" id="btn_emp_add" onkeyup=""><i class="fa fa-plus-square fa-lg"></i>&nbsp;Save Employee</button>
                                             </span>
                                             <span  id="update_div">
-                                                <button class="btn btn-custom-save hidden" id="btn_update_emp><i class="fa fa-pencil fa-sm"></i>&nbsp;Update</button>                                                
+                                                <button class="btn btn-custom-save hidden" id="btn_update_emp"><i class="fa fa-pencil fa-sm"></i>&nbsp;Update</button>                                                
                                                 <button class="btn btn-custom-light" id="btn_clear_emp"><i class="fa fa-refresh fa-sm"></i>&nbsp;Clear</button>
                                             </span>
                                         </div>
@@ -128,13 +126,13 @@ include './config/dbc.php';
                                         <table class="table table-bordered table-striped table-hover datable employee_details_tbl">
                                             <thead>
                                                 <tr>
-                                                    <th>Supplier Code</th>
-                                                    <th>Supplier Name</th>
-                                                    <th>Address</th>
-                                                    <th>Telephone No.</th>
-                                                    <th>Fax</th>
-                                                    <th>e-mail</th>
-                                                    <th>Web</th>
+                                                    <th>EMP Noth>
+                                                    <th>Employee Name</th>
+                                                    <th>NIC</th>
+                                                    <th>Designation.</th>
+                                                    <th>Telephone</th>
+                                                    <th>epfno</th>
+                                                    <th>Basic</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -153,42 +151,36 @@ include './config/dbc.php';
 
 
         <!-- load JavaScript-->
+        <script src="controllers/employee.js" type="text/javascript"></script>
         <?php require_once './include/systemFooter.php'; ?>
     </body>
     <script type="text/javascript">
-        $(function() {
-            // pageProtect();
-            // checkurl();
-            load_employee_tbl();
-                     
-            $('#logout').click(function() {
-                logout();
-            });
-            // BANK MODAL ACTIONS            
-            $('#bank_saveBtn').click(function() {
-                //// save
-                bank_save();
-            });
-            $('#bank_updtBtn').click(function() {
-                bank_update();
-            });
+                                                $(function() {
+                                                    // pageProtect();
+                                                    // checkurl();
+                                                    load_employee_tbl();
+                                                    next_ai_emp();
 
-            $('#bank_reset').click(function() {
-                bank_form_reset();
-            });
-            //
-            $('#btn_supp_add').click(function() {
-                save_supp();
-            });
-            $('#btn_clear_supp').click(function() {
-                clear_sup_form();
-            });
-            $('#btn_update_supp').click(function() {
-                update_supp();
-            });
-        });
+                                                    $('#logout').click(function() {
+                                                        logout();
+                                                    });
+                                                    // BANK MODAL ACTIONS            
+                                                    $('#btn_emp_add').click(function() {
+                                                        //// save
+                                                        save_employee();
+                                                    });
+                                                    $('#btn_update_emp').click(function() {
+                                                        bank_update();
+                                                    });
 
-        $('select').chosen({width: "100%"});
+                                                    $('#btn_clear_emp').click(function() {
+                                                        bank_form_reset();
+                                                    });
+                                                    //
+                                                   
+                                                });
+
+                                                $('select').chosen({width: "100%"});
     </script>
 </html>
 
