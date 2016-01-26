@@ -43,20 +43,19 @@ function save_employee() {
     }
 }
 
-function clear_sup_form() {
-    $('#supp_id').val("");
-    $('#sup_code').val("");
+function clear_emp_form() {
+    $('#emp_id').val("");
+    $('#empno').val("");
     $('#sup_name').val("");
-    $('#sup_name_for_invo').val("");
-    $('#address').val("");
-    $('#address_for_invo').val("");
-    $('#phone_no').val("");
-    $('#phone_no_for_invo').val("");
-    $('#fax').val("");
-    $('#email').val("");
-    $('#web').val("");
-    $('#suppbank_name').val("");
-    $('#suppbank_id').val("");
+    $('#title').val("");
+    $('#designation').val("");
+    $('#nic').val("");
+    $('#name').val("");
+    $('#tel').val("");
+    $('#epfno').val("");
+    $('#basic').val("");
+    $('#reg_date').val("");
+
     hide_supp_btn();
 }
 
