@@ -46,7 +46,7 @@
 
                             <li><a href="page_faq.php">Help</a></li>  
                             <li class="topbar-devider"></li>   
-                            <li><a href="page_login.php">Login</a></li>   
+                            <li><a href="admin.php">Login</a></li>   
                         </ul>
                         <!-- End Topbar Navigation -->
                     </div>

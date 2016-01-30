@@ -40,23 +40,7 @@
 <div class="wrapper">
     <!--=== Header ===-->    
     <div class="header">
-        <!-- Topbar -->
-        <div class="topbar">
-            <div class="topbar">
-            <div class="container">
-                <!-- Topbar Navigation -->
-                <ul class="loginbar pull-right">
-                     
-                    <li><a href="page_faq.html">Help</a></li>  
-                    <li class="topbar-devider"></li>   
-                    <li><a href=""page_login.php".html">Login</a></li>   
-                </ul>
-                <!-- End Topbar Navigation -->
-            </div>
-        </div>
-        </div>
-        <!-- End Topbar -->
-    
+           
         <!-- Navbar -->
 <?php include'./inc/navBar.php'; ?>   
       
@@ -71,7 +55,7 @@
             <ul class="pull-right breadcrumb">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="admin.php">Admin Login</a></li>
-                <li class="active">Login</li>
+              
             </ul>
         </div><!--/container-->
     </div><!--/breadcrumbs-->

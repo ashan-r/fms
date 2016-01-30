@@ -189,3 +189,30 @@ function get_selected_employee_data(emp_id) {
 
 
 
+function load_employee(selected, callBack) {
+    var comboData = '';
+    $.post("models/employee.php", {comboBox: 'load_employee'}, function(e) {
+        if (e === undefined || e.length === 0 || e === null) {
+            comboData += '<option value="0"> -- No Data Found -- </option>';
+            $('#employee').html('').append(comboData);
+            chosenRefresh();
+        } else {
+            $.each(e, function(index, qData) {
+                if (selected !== undefined || e !== null || e.length !== 0) {
+                    if (parseInt(selected) === parseInt(qData.emp_id)) {
+                        comboData += '<option value="' + qData.emp_id + '" selected>' + qData.name + '</option>';
+                    } else {
+                        comboData += '<option value="' + qData.emp_id + '">' + qData.name + '</option>';
+                    }
+                }
+            });
+            $('#employee').html('').append(comboData);
+            chosenRefresh();
+        }
+        if (callBack !== undefined) {
+            if (typeof callBack === 'function') {
+                callBack();
+            }
+        }
+    }, "json");
+}

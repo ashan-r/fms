@@ -128,3 +128,19 @@ VALUES" . "('{$data['emp_id']}', '{$data['empno']}', '{$data['name']}',  '{$data
         MainConfig::closeDB();
     }
 }
+
+
+if (array_key_exists("comboBox", $_POST)) {
+    if ($_POST['comboBox'] == 'load_employee') {
+// loading employee combo box
+        $system->prepareSelectQueryForJSON("SELECT
+                                            r_employee.emp_id,
+                                            r_employee.designation,
+                                            r_employee.name,
+                                            r_employee.nic,
+                                            r_employee.epfno,
+                                            r_employee.basic
+                                            FROM
+                                            r_employee
+                                                                           ");
+} }

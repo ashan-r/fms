@@ -15,12 +15,7 @@ include './config/dbc.php';
             <!--   Big container   -->
             <div class="container">
                 <div class="row">
-
-                    <ol class="breadcrumb">
-                        <li><a href="human_resource_management.php">Paysheets</a></li>
-                        <li><a href="paysheetAddEmp.php">Add a Paysheet</a></li>
-                    </ol>
-                    <!--Generate User Paysheet-->
+                                       <!--Generate User Paysheet-->
 
                     <div class="row">
                         <h4 style="padding-left: 35px; padding-top: 15px; margin-top:-30px;margin-bottom: -10px; text-align: center"><b>::: Calculate Salary ::</b></h4>
@@ -198,7 +193,7 @@ include './config/dbc.php';
     </body>
 
 
-    <script type="text/javascript" src="controllers/controller_employee.js">
+    <script type="text/javascript" src="controllers/employee.js">
     </script>
     <?php require_once './include/systemFooter.php'; ?>
 
@@ -207,8 +202,8 @@ include './config/dbc.php';
 <script type="text/javascript">
     $(function() {
         //starterBgSlideTransition_for_sub_pages();
-        pageProtect();
-        checkurl();
+       // pageProtect();
+       // checkurl();
         load_max_id(); // load the next max value to the paysheet id textbox
 
         $('#paysheet_save').click(function() {
@@ -226,49 +221,22 @@ include './config/dbc.php';
 
 //    
 
-        function save_paysheet() {
+        
 
-            var name = $('#employee').val();
-            var epfno = $('#epf').val();
-            var emp_id = $('#eid').val();
-            var nic = $('#nic').val();
-            var basic = $('#basic').val();
-            var hours = $('#hours').val();
-            var hourlyrate = $('#hourlyrate').val();
-            var nopay = $('#nopay').val();
-            var late = $('#late').val();
-            var othours = $('#othours').val();
-            var otrate = $('#otrate').val();
-            var advance = $('#advance').val();
-            var meal = $('#meal').val();
-            var epfval = $('#epfval').val();
-            var other = $('#other').val();
-            var salary = $('#salary').val();
-            var date = $('#date').val();
-            var paysheet_id = $('#max_id').val();
+ load_employee();
 
-            $.post('Models/model_employee.php', {action: 'save_paysheet', paysheet_id: paysheet_id, name: name, emp_id: emp_id, epfno: epfno, nic: nic, nopay: nopay, late: late, basic: basic, othours: othours, otrate: otrate, advance: advance, meal: meal, salary: salary,epfval:epfval, date: date}, function(e) {
-                alertifyMsgDisplay(e, 1000);
-                clear_pay_form();
-                load_max_id(); // load the next max value to the paysheet id textbox
-
-
-            }, "json");
-        }
-
-
-        load_employee(null, function() {
-            load_emp_id($('#employee').val());
-        });
-
-        $('#employee').change(function() {
-            load_emp_id($('#employee').val());
-
-        });
-        $('#employee').change(function() {
-            load_epfno($('#employee').val());
-
-        });
+//        load_employee(null, function() {
+//            load_emp_id($('#employee').val());
+//        });
+//
+//        $('#employee').change(function() {
+//            load_emp_id($('#employee').val());
+//
+//        });
+//        $('#employee').change(function() {
+//            load_epfno($('#employee').val());
+//
+//        });
 
         function load_max_id() {
             // function for loading primary key + 1 value for the text box from the database.
@@ -306,7 +274,7 @@ include './config/dbc.php';
             }
         });
         $(document).ready(function()
-        {
+      /*  {
             $(document).bind("contextmenu", function(e) {
                 return false;
             });
@@ -332,6 +300,8 @@ include './config/dbc.php';
                 return false;
             }
         }
+        
+        */
 
     });
 </script>
