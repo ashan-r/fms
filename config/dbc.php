@@ -1,16 +1,11 @@
 <?php
 
 $baseURL = 'http://localhost/fms';
-//$db_HOST='mdccserver';
-//$db_USER='mdccuser';
-//$db_PASS='mdccuser';
-//$db_NAME='carsale_db';
 $db_HOST = '127.0.0.1';
 $db_USER = 'root';
 $db_PASS = '';
 $db_NAME = 'fms';
-//$db_NAME='carsale_siyekra';
-// HOST
+
 //$baseURL = 'http://www.nosomi.siyekra.com';
 //$db_HOST='sddb0040026598.cgidb';
 //$db_USER='sd_dba_MjA2NTUw';
