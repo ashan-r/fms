@@ -50,7 +50,7 @@ include './config/dbc.php';
                                         </div>
                                     </div>
 
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         <label for="sub_cat_name" class="col-lg-4 control-label custom-label">NIC. :</label>
                                         <div class="col-lg-6">
                                             <input type="text" id="nic" class="form-control" placeholder="General">
@@ -76,7 +76,6 @@ include './config/dbc.php';
                                     <div class="form-group">
                                         <label class="col-lg-4 control-label custom-label">EPF No:</label>
                                         <div class="col-lg-6">
-                                            <!--<input type="text" id="v_fuel" class="form-control custom-text1" onkeyup="set_focus_next(event, '#model_desc')">-->
                                             <input type="text" id="epfno" class="form-control" placeholder="EPF NO">
                                         </div>
                                     </div>
@@ -84,14 +83,13 @@ include './config/dbc.php';
                                     <div class="form-group">
                                         <label class="col-lg-4 control-label custom-label">Basic:</label>
                                         <div class="col-lg-6">
-                                            <!--<input type="text" id="v_fuel" class="form-control custom-text1" onkeyup="set_focus_next(event, '#model_desc')">-->
                                             <input type="text" id="basic" class="form-control" placeholder="Basic Salary" >
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-4 control-label custom-label">Date :</label>
                                         <div class="col-lg-6">
-                                            <input type="text" id="reg_date" class="form-control custom-text1 datepicker" onkeyup="set_focus_next(event, '#model_save_btn')">                        
+                                            <input type="text" id="reg_date" class="form-control custom-text1 datepicker">                        
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -101,7 +99,7 @@ include './config/dbc.php';
                                             </span>
                                             <span  id="update_div">
                                                 <button class="btn btn-custom-save hidden" id="btn_update_emp"><i class="fa fa-pencil fa-sm"></i>&nbsp;Update</button>                                                
-                                                <button class="btn btn-custom-light" id="btn_clear_emp"><i class="fa fa-refresh fa-sm"></i>&nbsp;Clear</button>
+                                                <button class="btn btn-custom-light hidden" id="btn_clear_emp"><i class="fa fa-refresh fa-sm"></i>&nbsp;Clear</button>
                                             </span>
                                         </div>
                                     </div>
@@ -122,11 +120,11 @@ include './config/dbc.php';
                                     <div class="panel-body filterTableSearch">
                                         <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters=".contact_info_table"/>
                                     </div>
-                                    <div class="scrollable" style="height: 65vh; overflow-y: auto">
+                                    <div class="scrollable" style="height:500px; overflow-y: auto">
                                         <table class="table table-bordered table-striped table-hover datable employee_details_tbl">
                                             <thead>
                                                 <tr>
-                                                    <th>EMP Noth>
+                                                    <th>EMP No</th>
                                                     <th>Employee Name</th>
                                                     <th>NIC</th>
                                                     <th>Designation.</th>
@@ -155,32 +153,36 @@ include './config/dbc.php';
         <?php require_once './include/systemFooter.php'; ?>
     </body>
     <script type="text/javascript">
-                                                $(function() {
-                                                    // pageProtect();
-                                                    // checkurl();
-                                                    load_employee_tbl();
-                                                    next_ai_emp();
+        $(function() {
+            // pageProtect();
+            // checkurl();
+            load_employee_tbl();
+            next_ai_emp();
 
-                                                    $('#logout').click(function() {
-                                                        logout();
-                                                    });
-                                                    // BANK MODAL ACTIONS            
-                                                    $('#btn_emp_add').click(function() {
-                                                        //// save
-                                                        save_employee();
-                                                    });
-                                                    $('#btn_update_emp').click(function() {
-                                                        bank_update();
-                                                    });
+            $('#logout').click(function() {
+                logout();
+            });
+            // BANK MODAL ACTIONS            
+            $('#btn_emp_add').click(function() {
+                //// save
+                save_employee();
+            });
+            $('#btn_update_emp').click(function() {
+                update_employee();
+            });
 
-                                                    $('#btn_clear_emp').click(function() {
-                                                        bank_form_reset();
-                                                    });
-                                                    //
-                                                   
-                                                });
+            $('#btn_clear_emp').click(function() {
+                employee_form_reset();
+            });
+            //
 
-                                                $('select').chosen({width: "100%"});
+        });
+
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+
+        $('select').chosen({width: "100%"});
     </script>
 </html>
 

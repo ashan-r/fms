@@ -68,5 +68,63 @@ VALUES" . "('{$data['emp_id']}', '{$data['empno']}', '{$data['name']}',  '{$data
         $A = $system->getNextAutoIncrementID("r_employee");
         echo json_encode($A);
 //        $system->prepareSelectQueryForJSONSingleData("SELECT `AUTO_INCREMENT` AS max_ai FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'carsale_db' AND TABLE_NAME = 'vehicle'");  
+    } else if ($_POST['action'] == 'update_employee') {
+        $today = date('Y-m-d');
+        $data = $_POST['form_data'];
+        if (empty($data['empno'])) {
+            echo json_encode(array(array("msgType" => 2, "msg" => "Enter a supplier code")));
+            return;
+        }
+
+        foreach ($data as $key => $value) {
+            $data[$key] = mysql_real_escape_string($data[$key]);
+        }
+
+        mysql_query("START TRANSACTION");
+        $ins = mysql_query("INSERT INTO `r_employee` (
+	`emp_id`,
+	`empno`,
+	`name`,
+	`nic`,
+	`tel`,
+	`gender`,
+	`epfno`,
+	`basic`,
+	`reg_date`,
+	`status`
+)
+VALUES" . "('{$data['emp_id']}', '{$data['empno']}', '{$data['name']}',  '{$data['nic']}', '{$data['tel']}', '{$data['gender']}', '{$data['epfno']}', '{$data['basic']}','{$data['reg_date']}','1')") or die(mysql_error());
+
+        $trn = mysql_query("INSERT INTO `transaction` (`tr_type`, `tr_desc`, `tr_date`, `tr_user_id`) VALUES ('INSERT', 'employee-{$data['empno']}', '{$today}', '{$_SESSION['user_id']}')") or die(mysql_error());
+        if ($ins && $trn) {
+            mysql_query("COMMIT");
+            echo json_encode(array(array("msgType" => 1, "msg" => "Employee saved")));
+        } else {
+            mysql_query("ROLLBACK");
+            echo json_encode(array(array("msgType" => 2, "msg" => "Could not save")));
+        }
+        MainConfig::closeDB();
+    } else if ($_POST['action'] == 'next_ai_emp') {
+        $A = $system->getNextAutoIncrementID("r_employee");
+        echo json_encode($A);
+//        $system->prepareSelectQueryForJSONSingleData("SELECT `AUTO_INCREMENT` AS max_ai FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'carsale_db' AND TABLE_NAME = 'vehicle'");  
+    } else if ($_POST['action'] == 'delete_employee') {
+//Sam_Rulz
+        $today = date('Y-m-d');
+        $emp_id = $_POST['emp_id'];
+        $delete_query = "DELETE FROM r_employee WHERE r_employee.emp_id = '$emp_id'";
+        $transaction_query = "INSERT INTO `transaction` (`tr_type`, `tr_desc`, `tr_date`, `tr_user_id`) VALUES ('DELETE', 'Employee', '{$today}', '{$_SESSION['user_id']}')";
+
+        mysql_query("START TRANSACTION");
+        $delete = mysql_query($delete_query);
+        $transaction = mysql_query($transaction_query);
+        if ($delete && $transaction) {
+            mysql_query('COMMIT');
+            echo json_encode(array(array("msgType" => 1, "msg" => "Employee Successfully Deleted.")));
+        } else {
+            mysql_query('ROLLBACK');
+            echo json_encode(array(array("msgType" => 2, "msg" => "Cannot Be Deleted.")));
+        }
+        MainConfig::closeDB();
     }
 }

@@ -1577,14 +1577,14 @@ function load_employee_tbl() {
             $.each(e, function (index, data) {
                 index++;
                 tableData += '<tr>';
-                tableData += '<td style="text-align: center">' + data.empno + '</td>';
-                tableData += '<td style="text-align: center">' + data.name + '</td>';
-                tableData += '<td style="text-align: center">' + data.nic + '</td>';
-                tableData += '<td style="text-align: center">' + data.designation + '</td>';
-                tableData += '<td style="text-align: center">' + data.tel + '</td>';
-                tableData += '<td style="text-align: center">' + data.epfno + '</td>';
-                tableData += '<td style="text-align: center">' + data.basic + '</td>';
-                tableData += '<td style="text-align: center"><div class="btn-group"><button class="btn btn-custom-save select_emp" value="' + data.emp_id + '"><i class="fa fa-pencil fa-sm"></i>&nbsp;Edit</button> &nbsp;<button class="btn btn-custom-light delete_supp" value="' + data.emp_id + '"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete</button></div></td>';
+                tableData += '<td style="text-align: center">' + (data.empno== null? '-':data.empno)+ '</td>';
+                tableData += '<td style="text-align: center">' + (data.name == null ? '-':data.name)+ '</td>';
+                tableData += '<td style="text-align: center">' + (data.nic== null ? '-':data.nic) + '</td>';
+                tableData += '<td style="text-align: center">' + (data.designation== null ? '-':data.designation)+'</td>';
+                tableData += '<td style="text-align: center">' + (data.tel== null? '-' :data.tel)+ '</td>';
+                tableData += '<td style="text-align: center">' + (data.epfno == null ? '-':data.epfno) + '</td>';
+                tableData += '<td style="text-align: center">' + (data.basic == null ? '-':data.basic)+ '</td>';
+                tableData += '<td style="text-align: center"><div class="btn-group"><button class="btn btn-custom-save select_emp" value="' + data.emp_id + '"><i class="fa fa-pencil fa-sm"></i>&nbsp;Edit</button> &nbsp;<button class="btn btn-custom-light delete_emp" value="' + data.emp_id + '"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete</button></div></td>';
                 tableData += '</tr>';
             });
             $('.employee_details_tbl tbody').html('').append(tableData);
@@ -1594,8 +1594,8 @@ function load_employee_tbl() {
                 get_selected_employee_data(emp_id);
             });
 
-            $('.delete_supp').click(function () {
-                delete_supplier($(this).val());
+            $('.delete_emp').click(function () {
+                delete_employee($(this).val());
             });
 
         }
