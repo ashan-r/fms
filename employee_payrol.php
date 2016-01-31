@@ -15,7 +15,7 @@ include './config/dbc.php';
             <!--   Big container   -->
             <div class="container">
                 <div class="row">
-                                       <!--Generate User Paysheet-->
+                    <!--Generate User Paysheet-->
 
                     <div class="row">
                         <h4 style="padding-left: 35px; padding-top: 15px; margin-top:-30px;margin-bottom: -10px; text-align: center"><b>::: Calculate Salary ::</b></h4>
@@ -65,7 +65,7 @@ include './config/dbc.php';
                                                 <div class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>
                                                 <input type="text" class="form-control datepicker " id="date"
                                                        title="select paysheet due date "  data-toggle="tooltip"
-                                                      value="<?php echo date('Y-m-d'); ?>" data-date-format="yyyy-mm-dd">
+                                                       value="<?php echo date('Y-m-d'); ?>" data-date-format="yyyy-mm-dd">
                                             </div>
 
                                         </div>
@@ -172,7 +172,7 @@ include './config/dbc.php';
                                         <h6 id="homesok" style="color: green;"></h6>
                                     </div>
                                 </div>
-                              
+
 
                                 <div class="form-group">
 
@@ -192,118 +192,77 @@ include './config/dbc.php';
         </div>
     </body>
 
+    <script src="./controllers/controller_paysheet.js" type="text/javascript"></script>
 
-    <script type="text/javascript" src="controllers/employee.js">
-    </script>
     <?php require_once './include/systemFooter.php'; ?>
 
 
 </html>
 <script type="text/javascript">
-    $(function() {
-        //starterBgSlideTransition_for_sub_pages();
-       // pageProtect();
-       // checkurl();
-        load_max_id(); // load the next max value to the paysheet id textbox
-
-        $('#paysheet_save').click(function() {
-            save_paysheet();
-        });
-
-
-        $('#paysheet_id').keyup(function() {
-            setTimeout(function() {
+                                            $(function() {
+                                                //starterBgSlideTransition_for_sub_pages();
+                                                // pageProtect();
+                                                // checkurl();
+                                                load_max_emp_id(); // load the next max value to the paysheet id textbox
+                                                load_employee();
+                                                $('#paysheet_save').click(function() {
+                                                    save_paysheet();
+                                                });
+                                                $('#paysheet_id').keyup(function() {
+                                                    setTimeout(function() {
 
 
-            }, 1000);
-        });
-
-
-//    
-
-        
-
- load_employee();
-
-//        load_employee(null, function() {
-//            load_emp_id($('#employee').val());
-//        });
-//
-//        $('#employee').change(function() {
-//            load_emp_id($('#employee').val());
-//
-//        });
-//        $('#employee').change(function() {
-//            load_epfno($('#employee').val());
-//
-//        });
-
-        function load_max_id() {
-            // function for loading primary key + 1 value for the text box from the database.
-
-            var mid = $('#max_id').val();
-
-            $.post("Models/model_employee.php", {action: 'max_id', id: mid}, function(e) {
-                if (e === undefined || e.length === 0 || e === null) {
-                    alertify.error("No Data Found For Max ID", 1000);
-                } else
-                {
-                    $.each(e, function(index, qData) {
-                        $('#max_id').val(++qData.payid);
-
-                    });
-                }
-            }, "Json");
-
-        }
+                                                    }, 1000);
+                                                });
 
 
 
-        //            nic validation
-        $('#nic').on('keyup', function() {
-            var nic_no = document.getElementById('nic').value;
-            if (/^[0-9]{9}[VvXx]{1}$/.test(nic_no) && nic_no.length == 10) {
-                $('#nic_val').html('');
-                $('#nic_valok').html('<i class="glyphicon glyphicon-ok-sign"></i> Valid NIC number.');
-                $('#systemUserAdd').removeClass('hidden');
-            } else {
-                $('#nic_valok').html('');
-                $('#nic_val').html('<i class="glyphicon glyphicon-warning-sign"></i> NIC number is not Valid.');
-                $('#systemUserAdd').addClass('hidden');
+                                                //            nic validation
+                                                $('#nic').on('keyup', function() {
+                                                    var nic_no = document.getElementById('nic').value;
+                                                    if (/^[0-9]{9}[VvXx]{1}$/.test(nic_no) && nic_no.length == 10) {
+                                                        $('#nic_val').html('');
+                                                        $('#nic_valok').html('<i class="glyphicon glyphicon-ok-sign"></i> Valid NIC number.');
+                                                        $('#systemUserAdd').removeClass('hidden');
+                                                    } else {
+                                                        $('#nic_valok').html('');
+                                                        $('#nic_val').html('<i class="glyphicon glyphicon-warning-sign"></i> NIC number is not Valid.');
+                                                        $('#systemUserAdd').addClass('hidden');
+                                                    }
+                                                });
 
-            }
-        });
-        $(document).ready(function()
-      /*  {
-            $(document).bind("contextmenu", function(e) {
-                return false;
-            });
-        });
-        document.onkeypress = function(event) {
-            event = (event || window.event);
-            if (event.keyCode == 123) {
-                //alert('No F-12');
-                return false;
-            }
-        }
-        document.onmousedown = function(event) {
-            event = (event || window.event);
-            if (event.keyCode == 123) {
-                //alert('No F-keys');
-                return false;
-            }
-        }
-        document.onkeydown = function(event) {
-            event = (event || window.event);
-            if (event.keyCode == 123) {
-                //alert('No F-keys');
-                return false;
-            }
-        }
-        
-        */
+                                            });
+                                            /*  $(document).ready(function()
+                                             {
+                                             $(document).bind("contextmenu", function(e) {
+                                             return false;
+                                             });
+                                             });
+                                             document.onkeypress = function(event) {
+                                             event = (event || window.event);
+                                             if (event.keyCode == 123) {
+                                             //alert('No F-12');
+                                             return false;
+                                             }
+                                             }
+                                             document.onmousedown = function(event) {
+                                             event = (event || window.event);
+                                             if (event.keyCode == 123) {
+                                             //alert('No F-keys');
+                                             return false;
+                                             }
+                                             }
+                                             document.onkeydown = function(event) {
+                                             event = (event || window.event);
+                                             if (event.keyCode == 123) {
+                                             //alert('No F-keys');
+                                             return false;
+                                             }
+                                             }
+                                             });
+                                             */
 
-    });
+
 </script>
 
 </html>
